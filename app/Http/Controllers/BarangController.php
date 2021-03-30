@@ -112,7 +112,14 @@ class BarangController extends Controller
    }
    public function cari(Request $request)
    {
-    $barang=Barang::where('kode_barang',$request->kode_barang)->first();
+    $barang = barang::when($request->keyword, function ($query) use ($request) {
+        $query->where('kode_barang', 'like', "%{$request->keyword}%")
+            ->orWhere('nama_barang', 'like', "%{$request->keyword}%")
+            ->orWhere('kategori_barang', 'like', "%{$request->keyword}%");
+    })->paginate();
+
+    $barang->appends($request->only('keyword'));
+
     return view('barangs.cari',compact('barang'));
    }
 }

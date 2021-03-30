@@ -16,7 +16,7 @@
         @csrf
             <div class="form-group">
             <label for="Nim">Cari</label>
-            <input type="text"name="kode_barang"class="form-control"id="kode_barang"aria-describedby="kode_barang"  placeholder="Cari Berdasarkan Kode Barang">
+            <input type="text"name="keyword"class="form-control"id="keyword"aria-describedby="keyword"  placeholder="Cari">
             </div>
             <button type="submit" class="btn btn-success mt-3">
         cari
