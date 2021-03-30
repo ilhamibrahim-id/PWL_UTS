@@ -110,4 +110,9 @@ class BarangController extends Controller
         return redirect()->route('barang.index')
                         ->with('success','barang deleted successfully');
    }
+   public function cari(Request $request)
+   {
+    $barang=Barang::where('kode_barang',$request->kode_barang)->first();
+    return view('barangs.cari',compact('barang'));
+   }
 }

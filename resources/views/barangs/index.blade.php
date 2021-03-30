@@ -12,6 +12,17 @@
         </div>
     </div>
 
+    <form method="post" action="{{url('cari')}}" id="myForm">
+        @csrf
+            <div class="form-group">
+            <label for="Nim">Cari</label>
+            <input type="text"name="kode_barang"class="form-control"id="kode_barang"aria-describedby="kode_barang"  placeholder="Cari Berdasarkan Kode Barang">
+            </div>
+            <button type="submit" class="btn btn-success mt-3">
+        cari
+        </button>
+        </form>
+        <br>
     @if ($message = Session::get('success'))
     <div class="alert alert-success">
         <p>{{ $message }}</p>

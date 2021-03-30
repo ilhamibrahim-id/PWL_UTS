@@ -14,3 +14,4 @@ use App\Http\Controllers\BarangController;
 |
 */
 Route::resource('barang', BarangController::class);
+Route::post('cari',[BarangController::class,'cari']);
