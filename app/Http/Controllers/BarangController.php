@@ -16,7 +16,7 @@ class BarangController extends Controller
     {
         $barangs = barang::latest()->paginate(5);
 
-        return view('barang.index',compact('barangs'))
+        return view('barangs.index',compact('barangs'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -48,7 +48,7 @@ class BarangController extends Controller
 
         barang::create($request->all());
 
-        return redirect()->route('barangs.index')
+        return redirect()->route('barang.index')
                         ->with('success','barang created successfully.');
     }
 
@@ -93,21 +93,21 @@ class BarangController extends Controller
 
         $barang->update($request->all());
 
-        return redirect()->route('barangs.index')
+        return redirect()->route('barang.index')
                         ->with('success','barang updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id_barang
      * @return \Illuminate\Http\Response
      */
     public function destroy(Barang $barang)
     {
         $barang->delete();
 
-        return redirect()->route('barangs.index')
+        return redirect()->route('barang.index')
                         ->with('success','barang deleted successfully');
-    }
+   }
 }
