@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class barang extends Model
 {
-    use HasFactory;
+    protected $table="barang";
+    protected $fillable = [
+        'kode_barang',
+        'nama_barang',
+        'kategori_barang',
+        'harga',
+        'qty'
+    ];
 }
